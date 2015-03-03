@@ -1,14 +1,11 @@
 package dnspod
 
 import (
-	//"encoding/json"
-	//"fmt"
 	"io/ioutil"
 	"net/http"
 	neturl "net/url"
 	"reflect"
 	"strconv"
-	// "github.com/magicshui/goutils/requests"
 )
 
 type Client struct {
@@ -20,7 +17,6 @@ type Client struct {
 	UserId        string `json:"user_id"`
 }
 
-// curl -X POST https://dnsapi.cn/Domain.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
 func (c *Client) Post(endpoint string, request interface{}) ([]byte, error) {
 
 	var _request = request.(map[string]interface{})
@@ -35,7 +31,6 @@ func (c *Client) Post(endpoint string, request interface{}) ([]byte, error) {
 
 	data := neturl.Values{}
 
-	// fmt.Println(_request)
 	for k, v := range _request {
 		sv := reflect.TypeOf(_request[k]).String()
 		switch sv {
@@ -58,7 +53,6 @@ func (c *Client) Post(endpoint string, request interface{}) ([]byte, error) {
 	if err != nil {
 		return []byte(""), err
 	}
-	// fmt.Println(string(result))
 	return result, err
 
 }
