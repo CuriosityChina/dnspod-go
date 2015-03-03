@@ -2,7 +2,7 @@ package dnspod
 
 import (
 	//"encoding/json"
-	"fmt"
+	//"fmt"
 	"io/ioutil"
 	"net/http"
 	neturl "net/url"
@@ -35,7 +35,7 @@ func (c *Client) Post(endpoint string, request interface{}) ([]byte, error) {
 
 	data := neturl.Values{}
 
-	fmt.Println(_request)
+	// fmt.Println(_request)
 	for k, v := range _request {
 		sv := reflect.TypeOf(_request[k]).String()
 		switch sv {
@@ -43,6 +43,9 @@ func (c *Client) Post(endpoint string, request interface{}) ([]byte, error) {
 			data.Add(k, v.(string))
 		case "int":
 			data.Add(k, strconv.Itoa(v.(int)))
+		case "int64":
+
+			data.Add(k, strconv.FormatInt(v.(int64), 10))
 		}
 
 	}
@@ -55,7 +58,7 @@ func (c *Client) Post(endpoint string, request interface{}) ([]byte, error) {
 	if err != nil {
 		return []byte(""), err
 	}
-	fmt.Println(string(result))
+	// fmt.Println(string(result))
 	return result, err
 
 }
