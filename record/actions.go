@@ -15,15 +15,15 @@ func NewClient(clt *dnspod.Client) *RECORD {
 }
 
 type RecordCreateRequest struct {
-	DomainId   string `url:"domain_id"`
+	DomainId   int    `url:"domain_id"`
 	SubDomain  string `url:"sub_domain"`
 	RecordType string `url:"record_type"`
 	RecordLine string `url:"record_line"`
 	Value      string `url:"value"`
-	MX         int    `url:"mx"`
-	TTL        int    `url:"ttl"`
+	MX         string `url:"mx"`
+	TTL        string `url:"ttl"`
 	Status     string `url:"status"`
-	Weight     int    `url:"weight"`
+	Weight     string `url:"weight"`
 }
 type RecordCreateResponse struct {
 	Record Record `json:"record"`
@@ -37,7 +37,7 @@ func (c *RECORD) RecordCreate(req RecordCreateRequest) (RecordCreateResponse, er
 }
 
 type RecordListRequest struct {
-	DomainId  string `url:"domain_id"`
+	DomainId  int    `url:"domain_id"`
 	Offset    int    `url:"offset"`
 	Length    int    `url:"length"`
 	SubDomain string `url:"sub_domain"`
@@ -57,20 +57,20 @@ func (c *RECORD) RecordList(req RecordListRequest) (RecordListResponse, error) {
 }
 
 type RecordModifyRequest struct {
-	DomainId   string `url:"domain_id"`
+	DomainId   int    `url:"domain_id"`
 	RecordId   string `url:"record_id"`
 	SubDomain  string `url:"sub_domain"`
 	RecordType string `url:"record_type"`
 	RecordLine string `url:"record_line"`
 	Value      string `url:"value"`
-	MX         int    `url:"mx"`
-	TTL        int    `url:"ttl"`
+	MX         string `url:"mx"`
+	TTL        string `url:"ttl"`
 	Status     string `url:"status"`
-	Weight     int    `url:"weight"`
+	Weight     string `url:"weight"`
 }
 type RecordModifyResponse struct {
-	Domain  Domain   `json:"domain"`
-	Records []Record `json:"records"`
+	Domain Domain `json:"domain"`
+	Record Record `json:"record"`
 	*dnspod.CommonResponse
 }
 
@@ -81,12 +81,12 @@ func (c *RECORD) RecordModify(req RecordModifyRequest) (RecordModifyResponse, er
 }
 
 type RecordInfoRequest struct {
-	DomainId string `url:"domain_id"`
+	DomainId int    `url:"domain_id"`
 	RecordId string `url:"record_id"`
 }
 type RecordInfoResponse struct {
-	Domain  Domain   `json:"domain"`
-	Records []Record `json:"records"`
+	Domain Domain `json:"domain"`
+	Record Record `json:"record"`
 	*dnspod.CommonResponse
 }
 
@@ -97,7 +97,7 @@ func (c *RECORD) RecordInfo(req RecordInfoRequest) (RecordInfoResponse, error) {
 }
 
 type RecordRemoveRequest struct {
-	DomainId string `url:"domain_id"`
+	DomainId int    `url:"domain_id"`
 	RecordId string `url:"record_id"`
 }
 type RecordRemoveResponse *dnspod.CommonResponse

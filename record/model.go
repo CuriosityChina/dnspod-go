@@ -7,13 +7,15 @@ type Record struct {
 	Type          string `json:"type"`
 	TTL           string `json:"ttl"`
 	Value         string `json:"value"`
-	Mx            string `json:"mx"`
+	MX            string `json:"mx"`
 	Enabled       string `json:"enabled"`
 	Status        string `json:"status"`
 	MonitorStatus string `json:"monitor_status"`
 	Remark        string `json:"remark"`
 	UpdatedOn     string `json:"updated_on"`
 	UseAqb        string `json:"use_aqb"`
+	SubDomain     string `json:"sub_domain"`
+	Weight        string `json:"weight"`
 }
 
 type Domain struct {
