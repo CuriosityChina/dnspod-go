@@ -26,7 +26,12 @@ type RecordCreateRequest struct {
 	Weight     string `url:"weight"`
 }
 type RecordCreateResponse struct {
-	Record Record `json:"record"`
+	Record struct {
+		ID    string `json:"id"`
+		Name  string `json:"name"`
+		Value string `json:"value"`
+		Staus string `json:"status"`
+	} `json:"record"`
 	*dnspod.CommonResponse
 }
 
@@ -70,7 +75,12 @@ type RecordModifyRequest struct {
 }
 type RecordModifyResponse struct {
 	Domain Domain `json:"domain"`
-	Record Record `json:"record"`
+	Record struct {
+		ID    int    `json:"id"`
+		Name  string `json:"name"`
+		Value string `json:"value"`
+		Staus string `json:"status"`
+	} `json:"record"`
 	*dnspod.CommonResponse
 }
 
