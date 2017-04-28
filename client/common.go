@@ -1,5 +1,6 @@
-package dnspod
+package client
 
+// CommonResponse dnspod common response
 type CommonResponse struct {
 	Status struct {
 		Code      string `json:"code"`
