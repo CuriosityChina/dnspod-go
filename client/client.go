@@ -1,4 +1,4 @@
-package dnspod
+package client
 
 import (
 	"bytes"

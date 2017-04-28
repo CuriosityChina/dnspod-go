@@ -1,4 +1,4 @@
-package dnspod
+package client
 
 // CommonResponse dnspod common response
 type CommonResponse struct {

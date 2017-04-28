@@ -1,6 +1,7 @@
-package record
+package service
 
-type Record struct {
+// RecordType record type
+type RecordType struct {
 	ID            string `json:"id"`
 	Name          string `json:"name"`
 	Line          string `json:"line"`
@@ -18,7 +19,8 @@ type Record struct {
 	Weight        string `json:"weight"`
 }
 
-type Domain struct {
+// DomainType domain type
+type DomainType struct {
 	ID       int    `json:"id"`
 	Name     string `json:"name"`
 	Punycode string `json:"punycode"`
@@ -26,7 +28,8 @@ type Domain struct {
 	Owner    string `json:"owner"`
 }
 
-type Info struct {
+// InfoType info type
+type InfoType struct {
 	SubDomains  string `json:"sub_domains"`
 	RecordTotal string `json:"record_total"`
 }
