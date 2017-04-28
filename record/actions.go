@@ -1,7 +1,7 @@
 package record
 
 import (
-	"github.com/magicshui/dnspod-go"
+	"github.com/CuriosityChina/dnspod-go"
 )
 
 type RECORD struct {
