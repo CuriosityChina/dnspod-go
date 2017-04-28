@@ -3,6 +3,7 @@ VETARGS?=-all
 TEST?=$$(go list ./...)
 
 test: vet fmtcheck
+	go get -v github.com/google/go-querystring/query
 	go test -v ./...
 
 vet:
