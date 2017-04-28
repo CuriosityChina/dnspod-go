@@ -9,8 +9,8 @@ type RecordService struct {
 	*client.Client
 }
 
-// NewService return a new RecordService
-func NewService(clt *client.Client) *RecordService {
+// NewRecordService return a new RecordService
+func NewRecordService(clt *client.Client) *RecordService {
 	return &RecordService{
 		Client: clt,
 	}
