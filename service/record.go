@@ -18,7 +18,7 @@ func NewRecordService(clt *client.Client) *RecordService {
 
 // RecordCreateRequest record create input
 type RecordCreateRequest struct {
-	DomainID   int    `url:"domain_id"`
+	DomainID   string `url:"domain_id"`
 	SubDomain  string `url:"sub_domain"`
 	RecordType string `url:"record_type"`
 	RecordLine string `url:"record_line"`
@@ -49,7 +49,7 @@ func (c *RecordService) RecordCreate(req RecordCreateRequest) (RecordCreateRespo
 
 // RecordListRequest record list input
 type RecordListRequest struct {
-	DomainID  int    `url:"domain_id"`
+	DomainID  string `url:"domain_id"`
 	Offset    int    `url:"offset"`
 	Length    int    `url:"length"`
 	SubDomain string `url:"sub_domain"`
@@ -73,7 +73,7 @@ func (c *RecordService) RecordList(req RecordListRequest) (RecordListResponse, e
 
 // RecordModifyRequest record modify input
 type RecordModifyRequest struct {
-	DomainID   int    `url:"domain_id"`
+	DomainID   string `url:"domain_id"`
 	RecordID   string `url:"record_id"`
 	SubDomain  string `url:"sub_domain"`
 	RecordType string `url:"record_type"`
@@ -89,7 +89,7 @@ type RecordModifyRequest struct {
 type RecordModifyResponse struct {
 	Domain DomainType `json:"domain"`
 	Record struct {
-		ID    int    `json:"id"`
+		ID    string `json:"id"`
 		Name  string `json:"name"`
 		Value string `json:"value"`
 		Staus string `json:"status"`
@@ -106,7 +106,7 @@ func (c *RecordService) RecordModify(req RecordModifyRequest) (RecordModifyRespo
 
 // RecordInfoRequest record info input
 type RecordInfoRequest struct {
-	DomainID int    `url:"domain_id"`
+	DomainID string `url:"domain_id"`
 	RecordID string `url:"record_id"`
 }
 
@@ -126,7 +126,7 @@ func (c *RecordService) RecordInfo(req RecordInfoRequest) (RecordInfoResponse, e
 
 // RecordRemoveRequest record remove input
 type RecordRemoveRequest struct {
-	DomainID int    `url:"domain_id"`
+	DomainID string `url:"domain_id"`
 	RecordID string `url:"record_id"`
 }
 
