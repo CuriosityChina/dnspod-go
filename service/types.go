@@ -21,7 +21,7 @@ type RecordType struct {
 
 // DomainType domain type
 type DomainType struct {
-	ID       string `json:"id"`
+	ID       int    `json:"id"`
 	Name     string `json:"name"`
 	Punycode string `json:"punycode"`
 	Grade    string `json:"grade"`
