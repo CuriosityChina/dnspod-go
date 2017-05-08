@@ -50,7 +50,7 @@ func (c *Client) Post(action string, params interface{}, result interface{}) err
 
 // Post HTTP Do
 func (c *Client) do(method string, action string, params interface{}, result interface{}) error {
-	apiURL := fmt.Sprintf("%s/%s", DNSPodAPIBaseURL, action)
+	apiURL := fmt.Sprintf("%s%s", DNSPodAPIBaseURL, action)
 	baseURL, _ := url.Parse(apiURL)
 	opts, err := query.Values(params)
 	if err != nil {
