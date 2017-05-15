@@ -45,7 +45,7 @@ type InfoDomainType struct {
 
 // InfoRecordType record info record type
 type InfoRecordType struct {
-	ID            int    `json:"id"`
+	ID            string `json:"id"`
 	SubDomain     string `json:"sub_domain"`
 	RecordType    string `json:"record_type"`
 	RecordLine    string `json:"record_line"`
