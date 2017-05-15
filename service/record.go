@@ -32,10 +32,9 @@ type RecordCreateRequest struct {
 // RecordCreateResponse record create output
 type RecordCreateResponse struct {
 	Record struct {
-		ID    string `json:"id"`
-		Name  string `json:"name"`
-		Value string `json:"value"`
-		Staus string `json:"status"`
+		ID     string `json:"id"`
+		Name   string `json:"name"`
+		Status string `json:"status"`
 	} `json:"record"`
 	*client.CommonResponse
 }
@@ -58,9 +57,9 @@ type RecordListRequest struct {
 
 // RecordListResponse record list output
 type RecordListResponse struct {
-	Domain  DomainType   `json:"domain"`
-	Info    InfoType     `json:"info"`
-	Records []RecordType `json:"records"`
+	Domain  ListDomainType   `json:"domain"`
+	Info    ListInfoType     `json:"info"`
+	Records []ListRecordType `json:"records"`
 	*client.CommonResponse
 }
 
@@ -87,7 +86,6 @@ type RecordModifyRequest struct {
 
 // RecordModifyResponse record modify output
 type RecordModifyResponse struct {
-	Domain DomainType `json:"domain"`
 	Record struct {
 		ID    int    `json:"id"`
 		Name  string `json:"name"`
@@ -112,8 +110,8 @@ type RecordInfoRequest struct {
 
 // RecordInfoResponse record info output
 type RecordInfoResponse struct {
-	Domain DomainType `json:"domain"`
-	Record RecordType `json:"record"`
+	Domain InfoDomainType `json:"domain"`
+	Record InfoRecordType `json:"record"`
 	*client.CommonResponse
 }
 
