@@ -1,7 +1,7 @@
 package service
 
-// RecordType record type
-type RecordType struct {
+// ListRecordType record list record type
+type ListRecordType struct {
 	ID            string `json:"id"`
 	Name          string `json:"name"`
 	Line          string `json:"line"`
@@ -19,17 +19,44 @@ type RecordType struct {
 	Weight        string `json:"weight"`
 }
 
-// DomainType domain type
-type DomainType struct {
-	ID       int    `json:"id"`
-	Name     string `json:"name"`
-	Punycode string `json:"punycode"`
-	Grade    string `json:"grade"`
-	Owner    string `json:"owner"`
+// ListDomainType record list domain type
+type ListDomainType struct {
+	ID        int    `json:"id"`
+	Name      string `json:"name"`
+	Punycode  string `json:"punycode"`
+	Grade     string `json:"grade"`
+	Owner     string `json:"owner"`
+	ExtStatus string `json:"dnserror"`
+	TTL       int    `json:"ttl"`
 }
 
-// InfoType info type
-type InfoType struct {
+// ListInfoType record list info type
+type ListInfoType struct {
 	SubDomains  string `json:"sub_domains"`
 	RecordTotal string `json:"record_total"`
+}
+
+// InfoDomainType record info domain type
+type InfoDomainType struct {
+	ID          int    `json:"id"`
+	Domain      string `json:"domain"`
+	DomainGrade string `json:"domain_grade"`
+}
+
+// InfoRecordType record info record type
+type InfoRecordType struct {
+	ID            int    `json:"id"`
+	SubDomain     string `json:"sub_domain"`
+	RecordType    string `json:"record_type"`
+	RecordLine    string `json:"record_line"`
+	RecordLineID  string `json:"record_line_id"`
+	Value         string `json:"value"`
+	Weight        string `json:"weight"`
+	MX            string `json:"mx"`
+	TTL           string `json:"ttl"`
+	Enabled       string `json:"enabled"`
+	MonitorStatus string `json:"monitor_status"`
+	Remark        string `json:"remark"`
+	UpdatedOn     string `json:"updated_on"`
+	DomainID      string `json:"domain_id"`
 }
