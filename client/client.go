@@ -73,7 +73,7 @@ func (c *Client) do(method string, action string, params interface{}, result int
 	for k, v := range c.config {
 		opts.Add(k, v)
 	}
-	logger.Debug("request parameters with token: %s", opts.Encode)
+	logger.Debug("request parameters with token: %s", opts.Encode())
 	var body io.Reader
 	switch method {
 	case "GET":
