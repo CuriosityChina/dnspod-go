@@ -3,7 +3,7 @@ VETARGS?=-all
 TEST?=$$(go list ./...)
 
 test: vet fmtcheck
-	go get -v -d	
+	go get -v -d ./...	
 	go test -v ./...
 
 vet:
